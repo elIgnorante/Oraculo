@@ -1,37 +1,40 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Drawer } from 'expo-router/drawer';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
+export default function Layout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Drawer
+      screenOptions={{
+        drawerStyle: {
+          backgroundColor: '#25292e',
+          width: 240,
+        },
+        drawerLabelStyle: {
+          color: '#fff',
+        },
+        drawerActiveTintColor: '#4CAF50',
+      }}
+    >
+      {/* Mapeo de rutas directamente a los archivos */}
+      <Drawer.Screen
+        name="index"
+        options={{ title: 'Inicio' }}
+      />
+      <Drawer.Screen
+        name="incidencia_delictiva"
+        options={{ title: 'Incidencia Delictiva' }}
+      />
+      <Drawer.Screen
+        name="incidencia_vial"
+        options={{ title: 'Incidencia Vial' }}
+      />
+      <Drawer.Screen
+        name="vigilancia"
+        options={{ title: 'Vigilancia' }}
+      />
+      <Drawer.Screen
+        name="zonas_alto_riesgo"
+        options={{ title: 'Zonas de Alto Riesgo' }}
+      />
+    </Drawer>
   );
 }
