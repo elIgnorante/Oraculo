@@ -7,7 +7,7 @@ export default function IncidenciaVialScreen() {
       <Text style={{ fontSize: 20, textAlign: 'center', margin: 10 }}>
         Mapa de Incidencia Vial
       </Text>
-      <Map type="vial" />
+      <Map/>
     </View>
   );
 }

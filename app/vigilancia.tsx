@@ -7,7 +7,7 @@ export default function VigilanciaScreen() {
       <Text style={{ fontSize: 20, textAlign: 'center', margin: 10 }}>
         Vigilancia - Cámaras de Seguridad
       </Text>
-      <Map type="vigilancia" />
+      <Map/>
     </View>
   );
 }
