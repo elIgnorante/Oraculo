@@ -7,7 +7,7 @@ export default function IncidenciaDelictivaScreen() {
       <Text style={{ fontSize: 20, textAlign: 'center', margin: 10 }}>
         Mapa de Incidencia Delictiva
       </Text>
-      <Map type="delictiva" />
+      <Map/>
     </View>
   );
 }

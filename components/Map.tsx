@@ -1,21 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import MapView from 'react-native-maps';
+import { StyleSheet, View } from 'react-native';
 
-type MapProps = {
-  type: 'delictiva' | 'vial' | 'vigilancia' | 'alto-riesgo';
-};
-
-const Map = ({ type }: MapProps) => {
-  // Aquí puedes integrar algún servicio de mapas, como Google Maps o Mapbox
-  // Y ajustar los datos según el tipo de incidencia
+export default function Map() {
   return (
-    <View style={{ flex: 1, backgroundColor: 'lightgray' }}>
-      <Text style={{ textAlign: 'center', margin: 10 }}>
-        {`Mapa de ${type}`}
-      </Text>
-      {/* Integración de un mapa real va aquí */}
+    <View style={styles.container}>
+      <MapView style={styles.map} />
     </View>
   );
-};
+}
 
-export default Map;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+});
+
